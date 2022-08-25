@@ -26,7 +26,7 @@ const cdn = {
 
 
 if (isProduction) {
-    // 压缩 混淆 取出注释 console插件
+    // 打包时压缩 混淆 取出js文件里面的注释 console。log（）内容的插件，从而减少打包的体积
     plugins.push(new UglifyJsPlugin({
         uglifyOptions: {
             output: {
