@@ -71,6 +71,7 @@ module.exports = {
         plugins,
         externals
     },
+    //接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。即二次修改html的css和scipt标签
     chainWebpack:config=>{
         // html-webpack-plugin
             config.plugin('html').tap(args=>{    
