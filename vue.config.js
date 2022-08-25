@@ -40,7 +40,7 @@ if (isProduction) {
             }
         }
     }));
-
+    //Gzip的打包，只有在10kb以上才压缩
     plugins.push(new CompressionWebpackPlugin({
         test:/\.(js|json|css)$/i,  // 图片一般不Gzip压缩 webpack-image-loader
         threshold:10240, // 只有在10kb以上才压缩
