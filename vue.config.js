@@ -80,7 +80,7 @@ module.exports = {
                 }else {
                     args[0].cdn = cdn.dev;
                 }
-            return args;
+            return args;//注意要返回传递给 html-webpack-plugin's 构造函数的新参数
         });
     }
 }
