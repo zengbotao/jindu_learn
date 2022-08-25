@@ -61,6 +61,8 @@ module.exports = {
     productionSourceMap: !isProduction,
     //就不会生成map文件，map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
     //也就是说map文件相当于是查看源码的一个东西。如果不需要定位问题，并且不想被看到源码，就把productionSourceMap 置为false，既可以减少包大小，也可以加密源码。
+    
+    
     configureWebpack: {
         devServer: {
             proxy: {
@@ -73,8 +75,19 @@ module.exports = {
         plugins,
         externals
     },
+    //transpileDependencies：['mint-ui','mand-mobile']
+   // 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。你可以启用本选项，以避免构建后的代码中出现未转译的第三方依赖。
+    //不过，对所有的依赖都进行转译可能会降低构建速度。如果对构建性能有所顾虑，你可以只转译部分特定的依赖：给本选项传一个数组，列出需要转译的第三方包包名或正则表达式即可。
+    
     //接收一个基于 webpack-chain 的 ChainableConfig 实例。允许对内部的 webpack 配置进行更细粒度的修改。即二次修改html的css和scipt标签
     chainWebpack:config=>{
+        //postcss-pxtorem插件，css-rem
+        //vconsole,移动端测试工具，发布时需要去掉
+        //webpack-iconfont-plugin-node.js 开发时本地化svg文件成图标
+        //url-loader,
+        //file-loader,
+        //vue-loader,
+        //copywebpackplugin,打包完将文件复制到指定位置，一般用于静态min.js文件
         // html-webpack-plugin，具体可以参考vue cli官网的说明，浙商和这个项目的案例
             config.plugin('html').tap(args=>{    
                 if (isProduction) {
