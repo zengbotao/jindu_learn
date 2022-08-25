@@ -46,7 +46,7 @@ if (isProduction) {
         threshold:10240, // 只有在10kb以上才压缩
     }))
 
-    // 附加全局引包的引用关系
+    // 附加全局引包的引用关系，忽略这几个第三方包
     externals = {
     // from后的 : 使用全局暴露的对象名,具体看包暴露哪个
         vue:'Vue',
@@ -59,6 +59,8 @@ if (isProduction) {
 
 module.exports = {
     productionSourceMap: !isProduction,
+    //就不会生成map文件，map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
+    //也就是说map文件相当于是查看源码的一个东西。如果不需要定位问题，并且不想被看到源码，就把productionSourceMap 置为false，既可以减少包大小，也可以加密源码。
     configureWebpack: {
         devServer: {
             proxy: {
