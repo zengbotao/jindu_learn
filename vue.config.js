@@ -23,7 +23,7 @@ const cdn = {
         ] 
     }
 }
-
+//在打包的html文件中导入cdn对象，让他循环读取，加入cdn的链接
 
 if (isProduction) {
     // 打包时压缩 混淆 取出js文件里面的注释 console。log（）内容的插件，从而减少打包的体积，使代码更安全，变量长短的改变等
@@ -40,7 +40,7 @@ if (isProduction) {
             }
         }
     }));
-    //Gzip的打包，只有在10kb以上才压缩
+    //Gzip的打包，只有在10kb以上才压缩。对应的，服务器中的nginx服务器需要配置压缩相关的解压配置
     plugins.push(new CompressionWebpackPlugin({
         test:/\.(js|json|css)$/i,  // 图片一般不Gzip压缩 webpack-image-loader
         threshold:10240, // 只有在10kb以上才压缩
