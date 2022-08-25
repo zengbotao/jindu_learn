@@ -86,7 +86,7 @@ module.exports = {
         //webpack-iconfont-plugin-node.js 开发时本地化svg文件成图标
         //url-loader,
         //file-loader,
-        //vue-loader,
+        //vue-loader,等等其他打包设置参考https://blog.csdn.net/weixin_43090018/article/details/109570260
         //copywebpackplugin,打包完将文件复制到指定位置，一般用于静态min.js文件
         // html-webpack-plugin，具体可以参考vue cli官网的说明，浙商和这个项目的案例
             config.plugin('html').tap(args=>{    
