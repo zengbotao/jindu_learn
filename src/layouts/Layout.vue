@@ -38,7 +38,11 @@
 
 <script>
 import { mapGetters, mapActions,mapMutations } from 'vuex'
+import GAsideMenu from '../components/GAsideMenu.vue'
+import GDropdown from '../components/GDropdown.vue'
+
 export default {
+    components: {GAsideMenu,GDropdown},
     methods: {
         ...mapMutations({
             delTag:'user/delTag'
