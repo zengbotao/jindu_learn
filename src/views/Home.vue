@@ -24,6 +24,7 @@
 // @ is an alias to /src
 import CountTo from 'vue-count-to';
 import echarts from 'echarts';
+import waterMark from '../utils/waterMark.js'
 export default {
   name: 'Home',
   methods: {
@@ -318,6 +319,7 @@ export default {
   },
   mounted() {
     this.initCharts();
+    waterMark('8888888')
     this.resizeCallback = this.resize.bind(this);
     window.addEventListener('resize', this.resizeCallback)
   },
