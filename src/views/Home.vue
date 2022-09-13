@@ -16,6 +16,7 @@
       <div class="chart2"></div>
       <div class="chart3"></div>
     </div>
+    <drag/>
     <Doc/>
   </div>
 </template>
@@ -26,6 +27,7 @@ import CountTo from 'vue-count-to';
 import echarts from 'echarts';
 import waterMark from '../utils/waterMark.js'
 import Doc from '../components/Doc.vue';
+import drag from '../components/drag.vue'
 export default {
   name: 'Home',
   methods: {
@@ -344,7 +346,8 @@ export default {
   },
   components: {
     CountTo,
-    Doc
+    Doc,
+    drag
 }
 }
 </script>

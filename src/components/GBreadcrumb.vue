@@ -1,8 +1,8 @@
 <template>
     <el-breadcrumb separator="/">
         <el-breadcrumb-item v-for="(route, i) in breadcrumbList" :key="i">
-            <span v-if="breadcrumbList.length - 1 === i">{{ route?.meta?.title }}</span>
-            <router-link v-else :to="route">{{ route?.meta?.title }}</router-link>
+            <span v-if="breadcrumbList.length - 1 === i">{{ route|getd }}</span>
+            <router-link v-else :to="route">{{route|getd}}}</router-link>
         </el-breadcrumb-item>
     </el-breadcrumb>
 </template>
@@ -12,9 +12,22 @@ export default {
     // v3
     computed:{
         breadcrumbList(){
-            return this.$route.matched.filter(route => route?.meta?.title);
+            return this.$route.matched.filter(route =>route|getd);
         }
     },
+    filters:{
+        getd(route){
+            if(route){
+                if(route.meta){
+                    if(route.meta.title){
+                        return route.meta.title
+                    }
+                    return route.meta
+                }
+                return route
+            }
+        }
+    }
     // data() {
     //     return {
     //         breadcrumbList: []
