@@ -25,6 +25,16 @@ const cdn = {
 }
 //在打包的html文件中导入cdn对象，让他循环读取，加入cdn的链接
 //注意查看webpack与vue cli里的区别 https://webpack.docschina.org/configuration
+
+//腾讯课堂里的css压缩，loader，和npm package.json的官方文档 css.loader与styls.loader等内容
+
+//package.json的属性文档，script的写法，https://docs.npmjs.com/cli/v8/configuring-npm/package-json#scripts
+
+//不同webpack model的不同模式，版本的区别，多看看官方文档，包括属性和参数等等
+// 开发时用webpack-dev-server
+// "dev": "webpack-dev-server --content-base ./ --open --inline --hot --compress --history-api-fallback --config build/webpack.dev.config.js",
+//生产模式用webpack
+// "build": "webpack --progress --hide-modules --config build/webpack.prod.config.js && node versionInfo.js",
 if (isProduction) {
     // 打包时压缩 混淆 取出js文件里面的注释 console。log（）内容的插件，从而减少打包的体积，使代码更安全，变量长短的改变等
     plugins.push(new UglifyJsPlugin({
