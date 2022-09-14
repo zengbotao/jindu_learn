@@ -24,7 +24,7 @@ const cdn = {
     }
 }
 //在打包的html文件中导入cdn对象，让他循环读取，加入cdn的链接
-
+//注意查看webpack与vue cli里的区别 https://webpack.docschina.org/configuration
 if (isProduction) {
     // 打包时压缩 混淆 取出js文件里面的注释 console。log（）内容的插件，从而减少打包的体积，使代码更安全，变量长短的改变等
     plugins.push(new UglifyJsPlugin({
