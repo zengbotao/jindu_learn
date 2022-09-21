@@ -9,14 +9,22 @@
             group="site"
             animation="300"
             dragClass="dragClass"
+            @start="onStart"
+            @end="onEnd"
+          >
+          <!-- <draggable
+            v-model="arr1"
+            group="site"
+            animation="300"
+            dragClass="dragClass"
             ghostClass="ghostClass"
             chosenClass="chosenClass"
             @start="onStart"
             @end="onEnd"
-          >
-            <transition-group>
+          > -->
+            <transition-group style="display: flex;flex-flow:row wrap;height: 350px;width:500px;background-color: pink;">
               <div class="item" v-for="item in arr1" :key="item.id">{{ item.name }}</div>
-            </transition-group>
+            </transition-group>                  
           </draggable>
         </div>
         <div class="col">
@@ -25,7 +33,7 @@
             v-model="arr2"
             group="site"
             animation="100"
-            dragClass="dragClass"
+            dragClass="dragClass2"
             ghostClass="ghostClass"
             chosenClass="chosenClass"
             @start="onStart"
@@ -52,6 +60,10 @@
           { id: 3, name: '左侧盒子三' },
           { id: 4, name: '左侧盒子四' }
         ],
+         //https://blog.csdn.net/agua001/article/details/122318236
+         //使用 transition-group无法拖入一个空数组
+         //style="display: flex;height: 100px"注意高度的适配
+         //简易的拖拽看板
         arr2: [
           { id: 1, name: '右侧盒子一' },
           { id: 2, name: '右侧盒子二' },
@@ -73,23 +85,26 @@
     }
   }
   </script>
-  
+ 
   <style lang="scss" scoped>
   .ghostClass {
     background-color: blue !important;
   }
   
   .chosenClass {
-    background-color: black !important;
+    background-color: rgb(12, 88, 150) !important;
     color: white !important;
   }
   
   .dragClass {
     background-color: skyblue !important;
   }
-  
+  .dragClass2 {
+    background-color: rgb(235, 135, 135) !important;
+  }
   .itxst {
     margin: 10px;
+    
   }
   
   .title {
@@ -98,6 +113,7 @@
   
   .col {
     width: 40%;
+    height: 600px;
     background-color: #fff;
     flex: 1;
     padding: 10px;
@@ -107,21 +123,29 @@
   }
   
   .col + .col {
-    margin-left: 10px;
+    margin-left: 30px;
   }
+  //表示选择相邻兄弟，叫做“相邻兄弟选择器”，该选择器能够匹配指定元素后面相邻的兄弟元素。
   .item {
     padding: 6px 12px;
     margin: 0px 10px 0px 10px;
     border: solid 1px #eee;
     background-color: #f1f1f1;
   }
-  
+  .col :nth-child(odd){
+    width: 250px;
+    height: 50px;
+  }
+  .col :nth-child(even){
+    width: 100px;
+    height: 50px;
+  }
   .item:hover {
     background-color: #fdfdfd;
     cursor: move;
   }
   
-  .item + .item {
+  .item {
     border-top: none;
     margin-top: 6px;
   }
