@@ -1,6 +1,6 @@
 <template>
   <div ref="tip" class="to-doc" :style="{ top: top + 'px' }" @click="jumpToDoc" draggable="true">
-    <Icon type="help-circled" size="30" style="opacity: 0.5"></Icon>
+    <!-- <Icon type="help-circled" size="30" style="opacity: 0.5"></Icon> -->
     <span>帮助文档</span>
   </div>
 </template>

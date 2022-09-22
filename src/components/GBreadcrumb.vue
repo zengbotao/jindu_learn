@@ -1,8 +1,15 @@
+<!--
+ * @Description: 
+ * @Autor: zengbotao@myhexin.com
+ * @Date: 2022-08-30 19:29:54
+ * @LastEditors: 
+ * @LastEditTime: 2022-09-16 16:06:20
+-->
 <template>
     <el-breadcrumb separator="/">
         <el-breadcrumb-item v-for="(route, i) in breadcrumbList" :key="i">
-            <span v-if="breadcrumbList.length - 1 === i">{{ route|getd }}</span>
-            <router-link v-else :to="route">{{route|getd}}}</router-link>
+            <span v-if="breadcrumbList.length - 1 === i">{{ route.meta.title }}</span>
+            <router-link v-else :to="route">{{route.meta.title}}}</router-link>
         </el-breadcrumb-item>
     </el-breadcrumb>
 </template>
@@ -12,22 +19,9 @@ export default {
     // v3
     computed:{
         breadcrumbList(){
-            return this.$route.matched.filter(route =>route|getd);
+            return this.$route.matched.filter(route =>route.meta.title);
         }
     },
-    filters:{
-        getd(route){
-            if(route){
-                if(route.meta){
-                    if(route.meta.title){
-                        return route.meta.title
-                    }
-                    return route.meta
-                }
-                return route
-            }
-        }
-    }
     // data() {
     //     return {
     //         breadcrumbList: []

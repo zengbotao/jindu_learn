@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Autor: zengbotao@myhexin.com
+ * @Date: 2022-08-30 19:29:54
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-09-22 14:41:23
+ */
+import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
